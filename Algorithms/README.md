@@ -33,7 +33,10 @@ While the current node's longitude value is less than the next nodes longitude v
   * Return the index where the element was removed, or -1 on an error.
 
 ```
-
+Create a count integer and set it equal to zero. 
+Iterate through the linked list while it is not empty. Increment the count function by 1 for each iteration. If the current node's name is equal to the name we are trying to remove, free the contents of that node or set it equal to NULL. Then, make the previous node point to the node after the removed. Return the count value, which is the index. Exit the command. 
+If the current node's name is not equal to the name we are trying to remove, continue iterating through the list. 
+If the list is iterated through without finding the name, return -1. The name does not exist in the list. 
 ```
 
 `clearList:` Clear a list
