@@ -12,6 +12,7 @@ If the list is empty, make the front of the list equal to a new node with a give
 Set a count integer equal to zero. 
 While the list is not empty (in other words if rear-> next does not equal NULL), traverse through the list to set rear equal to the last value in the list. Increase the count by 1 each iteration. Return this value. It is the index. 
 Add a new node with a given name, latitude, and longitude to the next space after rear. 
+If the name, latitude, or longitude are not of proper data types, return an error. 
 ```
 
 `addSortedNode:` Add a location to the list sorted by longitude (i.e. the one that changes as you go east/west).
@@ -23,6 +24,7 @@ Add a new node with a given name, latitude, and longitude to the next space afte
 If the list is empty, make the front of the list equal to a new node with a given name, latitude, and logitude. Return 0, the index at which this new node is located. 
 Identify a count integer and set it equal to zero. 
 While the current node's longitude value is less than the next nodes longitude value and the list does not equal null, iterate through the linked list. Increase count through each iteration. Return the value of count. Create a new node once these conditions are not met. Make the previous node point to this node, and have this node point to the next node in the list, or NULL if the list is empty. 
+If the name, latitude, or longitude are not of proper data types, return an error. 
 
 ```
 
