@@ -7,7 +7,10 @@ Before writing your code you must prepare pseudo code algorithms for each of the
   * Note: Our LList data structure only contains a reference to the head of the list, so you will *not* be able to directly add to the rear like was done in our class example!
 
 ```
-add your pseudocode here (language independent)
+Create a new node "rear" and make it a pointer to the front of the list. 
+If the list is empty, make the front of the list equal to a new node with a given name, latitude, and longitude.   
+While the list is not empty (in other words if rear-> next does not equal NULL), traverse through the list to set rear equal to the last value in the list. 
+Add a new node with a given name, latitude, and longitude to the next space after rear. 
 ```
 
 `addSortedNode:` Add a location to the list sorted by longitude (i.e. the one that changes as you go east/west).
