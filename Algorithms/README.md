@@ -41,5 +41,7 @@ While the current node's longitude value is less than the next nodes longitude v
   * Return the total number of entries that were removed.
 
 ```
-
+Create a new node that will act as a pointer to the next node. 
+Create a new integer, count, and set it equal to zero. 
+While the list is not empty (head->next does not equal NULL), set the next node in the linked list equal to the head, free the head or set it equal to null, and set the head equal to the next node. Increment count by 1. Return the value of count. This is the total number of entries that were removed. 
 ```
