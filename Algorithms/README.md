@@ -8,8 +8,9 @@ Before writing your code you must prepare pseudo code algorithms for each of the
 
 ```
 Create a new node "rear" and make it a pointer to the front of the list. 
-If the list is empty, make the front of the list equal to a new node with a given name, latitude, and longitude.   
-While the list is not empty (in other words if rear-> next does not equal NULL), traverse through the list to set rear equal to the last value in the list. 
+If the list is empty, make the front of the list equal to a new node with a given name, latitude, and longitude. Return 0, the index at which this new node is located.  
+Set a count integer equal to zero. 
+While the list is not empty (in other words if rear-> next does not equal NULL), traverse through the list to set rear equal to the last value in the list. Increase the count by 1 each iteration. Return this value. It is the index. 
 Add a new node with a given name, latitude, and longitude to the next space after rear. 
 ```
 
