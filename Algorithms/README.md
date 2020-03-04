@@ -19,7 +19,10 @@ Add a new node with a given name, latitude, and longitude to the next space afte
   * Return the index of where the element was added (i.e., if the list was empty, it should return 0; if the new entry is the 4th entry, it should return 3), or -1 on an error.
   * You can assume that if a user wants a list to be sorted, they will only use `addSortedNode` (not a mix of that and `addNode`).
 
-```
+``` 
+If the list is empty, make the front of the list equal to a new node with a given name, latitude, and logitude. Return 0, the index at which this new node is located. 
+Identify a count integer and set it equal to zero. 
+While the current node's longitude value is less than the next nodes longitude value and the list does not equal null, iterate through the linked list. Increase count through each iteration. Return the value of count. Create a new node once these conditions are not met. Make the previous node point to this node, and have this node point to the next node in the list, or NULL if the list is empty. 
 
 ```
 
