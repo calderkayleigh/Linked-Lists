@@ -15,6 +15,10 @@ Add a new node with a given name, latitude, and longitude to the next space afte
 If the name, latitude, or longitude are not of proper data types, return an error. 
 ```
 
+```diff
+- you are not covering the case when the the list has not been initialized (i.e. createLList() was not called for the C version)
+```
+
 `addSortedNode:` Add a location to the list sorted by longitude (i.e. the one that changes as you go east/west).
   * Inputs: name, latitude, and longitude of the new location
   * Return the index of where the element was added (i.e., if the list was empty, it should return 0; if the new entry is the 4th entry, it should return 3), or -1 on an error.
@@ -28,6 +32,10 @@ If the name, latitude, or longitude are not of proper data types, return an erro
 
 ```
 
+```diff
+- you are not covering the case when the the list has not been initialized (i.e. createLList() was not called for the C version)
+```
+
 `remNode:` Remove a location by name
   * Input: The name of the location to remove.
   * Note: If there happen to be two entries in the list with the same name, you should remove the entry closest to the head of the list.
@@ -36,11 +44,20 @@ If the name, latitude, or longitude are not of proper data types, return an erro
 
 ```
 Create a count integer and set it equal to zero. 
-Iterate through the linked list while it is not empty. Increment the count function by 1 for each iteration. If the current node's name is equal to the name we are trying to remove, free the contents of that node or set it equal to NULL. Then, make the previous node point to the node after the removed. Return the count value, which is the index. Exit the command. 
+Iterate through the linked list while it is not empty. Increment the count function by 1 for each iteration. If the current node's name is equal to the name we are trying to remove, free the contents of that node or set it equal to NULL.
+```
+```diff
+- the order matters for the C version you should first link the previous and after nodes, and then free/remove the node. 
+```
+```
+Then, make the previous node point to the node after the removed. Return the count value, which is the index. Exit the command. 
 If the current node's name is not equal to the name we are trying to remove, continue iterating through the list. 
 If the list is iterated through without finding the name, return -1. The name does not exist in the list. 
 ```
 
+```diff
+- you are not covering the case when the the list has not been initialized (i.e. createLList() was not called for the C version)
+```
 `clearList:` Clear a list
   * Remove all locations in the list
   * Return the total number of entries that were removed.
@@ -49,4 +66,8 @@ If the list is iterated through without finding the name, return -1. The name do
 Create a new node that will act as a pointer to the next node. 
 Create a new integer, count, and set it equal to zero. 
 While the list is not empty (head->next does not equal NULL), set the next node in the linked list equal to the head, free the head or set it equal to null, and set the head equal to the next node. Increment count by 1. Return the value of count. This is the total number of entries that were removed. 
+```
+
+```diff
+- you are not covering the base cases when the list is empty, or the head is empty 
 ```
