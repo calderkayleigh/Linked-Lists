@@ -47,9 +47,6 @@ If the current node's name is not equal to the name we are trying to remove, con
 If the list is iterated through without finding the name, return -1. The name does not exist in the list. 
 ```
 
-```diff
-- you are not covering the case when the the list has not been initialized (i.e. createLList() was not called for the C version)
-```
 `clearList:` Clear a list
   * Remove all locations in the list
   * Return the total number of entries that were removed.
