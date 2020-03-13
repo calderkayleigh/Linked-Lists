@@ -59,7 +59,7 @@ public class LList
 		return -1;
 	}
 	
-	/*create a node named last that points to the current entry*/
+	/*create a node named last that points to the current entry and a node that points to the previous entry*/
 	LNode last = this.head;
 	LNode prev = this.head; 
 	
@@ -95,31 +95,40 @@ public class LList
 	  /*create an index count*/
 		int count = 0; 
 		
-		/*create a new node with the given name, lat, and lon*/
-		LNode add = new LNode(name, lat, lon); 
+		/*create new nodes with given name, latitude, and longitude*/
+		LNode entry = new LNode(name, lat, lon);
+		LNode prev = entry;
 		
 		/*make the added node point to null*/
-		add.next = null; 
+		entry.next = null;
+		prev.next = null; 
 		
-		/*if the list is empty, make the new node the head of the list. The index is 0*/
-		if(this.head == null)
+		/*if the list is empty or the longitude of the entry is smaller than that of the first nodes, make the new node the head of the list. The index is 0*/
+		if(this.head == null || entry.longitude <= this.head.longitude)
 		{
-			this.head = add;
+			entry.next = this.head; 
+			this.head = entry; 
+			
 			return 0; 
 		}
 		
-		/*Create a new node that will determine which node was added last. Set this equal to the head*/
-		LNode last = this.head;
-		
-		/*while last does not point to null, iterate through the list. Count the indexes*/
-		while(last.longitude <= add.longitude)
+		/*insert a sorted node to an index other than 0*/
+		else
 		{
-			last = last.next; 
-			count++; 
+			/*set previous equal to the head of the list*/
+			prev = this.head; 
+			
+			/*iterate through the list until it is empty of until the previous node is greater than the entry node*/
+			while(prev.next != null && prev.next.longitude < entry.next.longitude)
+			{
+				prev = prev.next; 
+				count++; 
+			}
+			entry.next = prev.next; 
+			prev.next = entry; 
+			
+			return count; 
 		}
-		last.next = add; 
-		add.next = last.next; 
-		return count; 
 	  
   }
 
@@ -129,8 +138,7 @@ public class LList
 	int count = 0; 
 	
 	/*create a node that will point to the last entry of the list*/
-	LNode last = this.head;
-	LNode prev = this.head;
+	LNode last = this.head; 
 	
 	/*check to see if there are any nodes in the list*/
 	if(this.head == null)
@@ -141,15 +149,15 @@ public class LList
 	
 	else
 	{
-		/*iterate through the list*/
+		/*iterate through the list to count the number of items*/
 		while(last.next != null)
-		{ 
-			count++;
+		{
+			count ++;  
 		}
-		/*To clear the list, set the head equal to Null. This is allowed because or the garbage collector*/
+	
 		this.head = null;
-			
-	    return count; 
+		return count;
+		
 	}
 	
   }
