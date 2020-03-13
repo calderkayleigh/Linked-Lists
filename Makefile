@@ -1,4 +1,4 @@
-# 2113 Project 1 Makefile
+# Linked List Makefile
 
 CFLAGS=-g
 DEPS=llist.h
@@ -9,7 +9,7 @@ all: c java
 	gcc -c -o $@ $< $(CFLAGS)
 
 %.class: %.java 
-	javac $< 
+	javac -cp . $< 
 
 llist: tests.o llist.o
 	gcc tests.o llist.o -o llist $(CFLAGS)
@@ -22,7 +22,7 @@ runc: c
 	./llist
 
 runjava: java
-	java Tests
+	java -cp . Tests
 	
 clean:
 	rm -f *.class *.o llist
