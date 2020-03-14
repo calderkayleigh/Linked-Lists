@@ -160,5 +160,35 @@ int addSortedNode(struct LList *list, char* name, double lat, double lon)
 int clearList(struct LList *list)
 {
   /* Delete list and free all of the memory associate with its LNodes. */
-  return 0;
+
+	/*create a node count*/
+	int count = 0;
+
+	/*create a node to iterate through the list*/
+	struct LNode* entry= (struct LNode*)malloc(sizeof(struct LNode));
+	entry = list->head;
+
+	/*create a temporary node for freeing*/
+	struct LNode* temp= (struct LNode*)malloc(sizeof(struct LNode));
+
+	/*check to see if there are any nodes in the list*/
+	if(list->head == NULL)
+	{
+		printf("The list is empty. No nodes to remove\n");
+		return -1;
+	}
+
+	/*iterate through the list. Count and free all nodes*/
+	while(entry->next != NULL)
+	{
+		temp = entry->next;
+		free(entry);
+		entry = temp;
+		count++;
+	}
+	list->head = NULL;
+	return count;
+
+
+
 }
