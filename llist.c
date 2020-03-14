@@ -79,6 +79,7 @@ int remNode(struct LList *list, char* name)
 	/*if the list is empty, return an error*/
 	if(list->head == NULL)
 	{
+		printf("Error. Attempting to remove from an empty list\n");
 		return -1;
 	}
 
@@ -111,6 +112,7 @@ int remNode(struct LList *list, char* name)
 		last = last->next;
 		count++;
 	}
+	printf("The point does not exist\n");
 	return -1;
 
 }
@@ -188,7 +190,5 @@ int clearList(struct LList *list)
 	}
 	list->head = NULL;
 	return count;
-
-
 
 }
