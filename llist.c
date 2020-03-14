@@ -127,39 +127,33 @@ int addSortedNode(struct LList *list, char* name, double lat, double lon)
 	entry->name = name;
 	entry->latitude = lat;
 	entry->longitude = lon;
-	struct LNode* prev= (struct LNode*)malloc(sizeof(struct LNode));
-	prev = entry;
+	struct LNode* iterate= (struct LNode*)malloc(sizeof(struct LNode));
+
 
 	/*make the added node point to null*/
 	entry->next = NULL;
-	prev->next = NULL;
 
-	/*if the list is empty or the longitude of the entry is smaller than that of the first nodes, make the new node the head of the list. The index is 0*/
 	if(list->head == NULL || entry->longitude <= list->head->longitude)
 	{
 		entry->next = list->head;
 		list->head = entry;
-
 		return 0;
 	}
 
-	/*insert a sorted node to an index other than 0*/
 	else
 	{
-		/*set previous equal to the head of the list*/
-		prev = list->head;
-
-		/*iterate through the list until it is empty or until the previous node is greater than the entry node*/
-		while(prev->next != NULL && prev->next->longitude < entry->next->longitude)
+		iterate = list->head;
+		while(iterate->next != NULL && iterate->next->longitude < entry->longitude)
 		{
-			prev = prev->next;
 			count++;
+			iterate = iterate->next;
 		}
-		entry->next = prev->next;
-		prev->next = entry;
-
+		entry->next = iterate->next;
+		iterate->next = entry;
 		return count;
 	}
+
+
 
 }
 
