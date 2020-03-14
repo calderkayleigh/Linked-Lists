@@ -75,6 +75,7 @@ int remNode(struct LList *list, char* name)
 
 	/*create an index count*/
 	int count = 0;
+	int ret;
 
 	/*if the list is empty, return an error*/
 	if(list->head == NULL)
@@ -91,7 +92,9 @@ int remNode(struct LList *list, char* name)
 	/*iterate through the list while there are nodes*/
 	while(last->next != NULL)
 	{
-		if(name == last->name)
+		ret = strcmp(name, last->name);
+
+		if(ret == 0)
 		{
 			if(last == list->head)
 			{
