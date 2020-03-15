@@ -143,8 +143,8 @@ public class Tests
   {
    
     addTestSimple();
-    //addTestFull(); 
-    //removeTestFull(); 
-    //clearTestFull(); 
+    addTestFull(); 
+    removeTestFull(); 
+    clearTestFull(); 
   }
 }
