@@ -138,8 +138,8 @@ public class LList
 	int count = 0; 
 	
 	/*create a node that will point to the last entry of the list*/
-	LNode last = this.head; 
-	
+	LNode last = this.head;  
+	 
 	/*check to see if there are any nodes in the list*/
 	if(this.head == null)
 	{
@@ -152,11 +152,15 @@ public class LList
 		/*iterate through the list to count the number of items*/
 		while(last.next != null)
 		{
+			last = last.next; 
 			count ++;  
 		}
 	
+		/*set the head equal to null. Garbage collector will clear memory*/
 		this.head = null;
-		return count;
+		//System.out.println(count+1); 
+		
+		return count+1;
 		
 	}
 	
