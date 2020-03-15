@@ -64,7 +64,7 @@ public class LList
 	LNode prev = this.head; 
 	
 	/*iterate through the list while there are nodes*/
-	while(last.next != null)
+	while(last != null)
 	{
 			if(name.equals(last.name))
 			{
@@ -86,7 +86,7 @@ public class LList
 			last = last.next; 
 			count++;
 	}
-	
+	System.out.println("Node does not exist. Nothing was removed"); 
 	return -1; 
   }
 
