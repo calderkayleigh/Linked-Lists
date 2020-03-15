@@ -65,6 +65,7 @@ int addNode(struct LList *list, char* name, double lat, double lon)
 	}
 	last->next = new;
 	new->next = NULL;
+	//printf("Index of added node = %d\n", count+1);
 	return count+1;
 }
 
@@ -105,6 +106,7 @@ int remNode(struct LList *list, char* name)
 			{
 				prev->next = last->next;
 				free(last);
+				//printf("Index of removed node = %d\n", count);
 				return count;
 			}
 		}
@@ -152,10 +154,9 @@ int addSortedNode(struct LList *list, char* name, double lat, double lon)
 		}
 		entry->next = iterate->next;
 		iterate->next = entry;
+		//printf("Index of added node = %d\n", count);
 		return count;
 	}
-
-
 
 }
 
@@ -189,6 +190,7 @@ int clearList(struct LList *list)
 		count++;
 	}
 	list->head = NULL;
-	return count;
+	//printf("Number of nodes in list before clear= %d\n", count+1);
+	return count+1;
 
 }
